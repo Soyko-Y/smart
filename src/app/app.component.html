@@ -1,9 +1,1 @@
-<ul class="users">
-  <li *ngFor="let user of users" (click)="onSelect(user)">
-    <span>{{ user.id }}</span> 
-    <span>{{ user.name }}</span>
-  </li>
-</ul>
-<div *ngIf="selectedUser">
-  {{ selectedUser.email }}
-</div>
+<my-users></my-users>
