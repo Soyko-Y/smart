@@ -1,5 +1,5 @@
 import { BrowserModule }	from '@angular/platform-browser';
-import { NgModule}		 	from '@angular/core';
+import { NgModule}		 		from '@angular/core';
 import { HttpModule } 	 	from '@angular/http';
 
 import { AppComponent }		from './app.component';
@@ -9,7 +9,7 @@ import { UserService } 		from './user/user.service';
 @NgModule({
 	imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
   ],
   declarations: [
     AppComponent,

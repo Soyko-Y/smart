@@ -1,37 +1,48 @@
-<ul class="users">
-  <li *ngFor="let user of users" (click)="onSelect(user)">
-    <ul>
-    	<li>ID: 		{{ user.id 				}}</li>
-    	<li>Name: 	{{ user.username 	}}</li>
-    	<li>E-mail: {{ user.email 		}}</li>
-    	<li>Address:
-    		<ul>
-    			<li>Street: 	{{ user.address.street 	}}</li>
-    			<li>Suite: 		{{ user.address.suite 	}}</li>
-    			<li>City: 		{{ user.address.city 		}}</li>
-    			<li>Zipcode:	{{ user.address.zipcode }}</li>
-    			<li>Geo:
-    				<ul>
-    					<li>Lat: {{ user.address.geo.lat }}</li>
-    					<li>Lng: {{ user.address.geo.lng }}</li>
-    				</ul>
-    			</li>
-    		</ul>
-    	</li>
-    </ul>
-  </li>
-  <li *ngIf="selectedUser">
-  	<ul>
-  		<li>Phone: 		{{ selectedUser.phone 	}}</li>
-  		<li>Website:	{{ selectedUser.website }}</li>
-  		<li>Company:
-  			<ul>
-  				<li>Company name: {{ selectedUser.company.name 				}}</li>
-  				<li>Cacth phrase: {{ selectedUser.company.catchPhrase }}</li>
-  				<li>Bs:						{{ selectedUser.company.bs 					}}</li>
-  			</ul>
-  		</li>
-  	</ul>
-  </li>
-</ul>
-  
+<table class="users main_table">
+	<tr>
+		<th rowspan="3">ID 			</th>
+		<th rowspan="3">Name 		</th>
+		<th rowspan="3">E-mail 	</th>
+		<th colspan="6">Address </th>
+	</tr>
+	<tr>
+		<th rowspan="2">Street 	</th>
+		<th rowspan="2">Suite 	</th>
+		<th rowspan="2">City 		</th>
+		<th rowspan="2">Zipcode </th>
+		<th colspan="2">Geo 		</th>
+	</tr>
+	<tr>
+		<th>Lat</th>
+		<th>Lng</th>
+	</tr>
+	<tr *ngFor="let user of users" (click)="onSelect(user)">
+		<td><a href="#openModal">{{ user.id 							}}</a></td>
+		<td><a href="#openModal">{{ user.username 				}}</a></td>
+		<td><a href="#openModal">{{ user.email 					}}</a></td>
+		<td><a href="#openModal">{{ user.address.street 	}}</a></td>
+		<td><a href="#openModal">{{ user.address.suite 	}}</a></td>
+		<td><a href="#openModal">{{ user.address.city 		}}</a></td>
+		<td><a href="#openModal">{{ user.address.zipcode }}</a></td>
+		<td><a href="#openModal">{{ user.address.geo.lat }}</a></td>
+		<td><a href="#openModal">{{ user.address.geo.lng }}</a></td>
+  </tr>
+</table>
+
+<div id="openModal" class="modalDialog">
+  <div *ngIf="selectedUser">
+    <a href="#close" title="Закрыть" class="close">X</a>
+    <h2>{{ selectedUser.name }}</h2>
+      <ul>
+        <li><b>Phone:</b>    {{ selectedUser.phone   }}</li>
+        <li><b>Website:</b>  {{ selectedUser.website }}</li>
+        <li><b>Company:</b>
+          <ul>
+            <li><b>Company</b> name: {{ selectedUser.company.name        }}</li>
+            <li><b>Catch phrase:</b> {{ selectedUser.company.catchPhrase }}</li>
+            <li><b>Bs:</b>           {{ selectedUser.company.bs          }}</li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</div>
