@@ -1,7 +1,8 @@
 import { Component, OnInit }  from '@angular/core';
 
-import { UserService } from './user.service';
-import { User }        from './user';
+import { UserService } from './service/user.service';
+import { User }        from './model/user.model';
+import { Observable }        from 'rxjs/Observable';
 
 
 @Component({
@@ -16,16 +17,12 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  onSelect(user: User): void {
+  private onSelect(user: User): void {
     this.selectedUser = user;
   }
 
-  getUsers(): void {
-    this.userService.getUsers().then(users => this.users = users);
-  }
-
-  ngOnInit(): void {
-    this.getUsers();
+  public ngOnInit(): void {
+    this.userService.getUsers().subscribe(users => this.users = users);
   }
 
 }

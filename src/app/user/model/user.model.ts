@@ -20,4 +20,6 @@ export class User {
 		catchPhrase: string;
 		bs: string;
 	};
+
+	constructor() {}
 }
