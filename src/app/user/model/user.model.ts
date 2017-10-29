@@ -1,4 +1,4 @@
-export class User {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -20,6 +20,4 @@ export class User {
 		catchPhrase: string;
 		bs: string;
 	};
-
-	constructor() {}
 }

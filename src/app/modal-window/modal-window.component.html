@@ -1,0 +1,17 @@
+<div class="modalDialog" >
+  <div *ngIf="selectedUser">
+    <a routerLink="/my-users" title="Закрыть" class="close">X</a>
+    <h2>{{ selectedUser.name }}</h2>
+      <ul>
+        <li><b>Phone:</b>    {{ selectedUser.phone   }}</li>
+        <li><b>Website:</b>  {{ selectedUser.website }}</li>
+        <li><b>Company:</b>
+          <ul>
+            <li><b>Company</b> name: {{ selectedUser.company.name        }}</li>
+            <li><b>Catch phrase:</b> {{ selectedUser.company.catchPhrase }}</li>
+            <li><b>Bs:</b>           {{ selectedUser.company.bs          }}</li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</div>

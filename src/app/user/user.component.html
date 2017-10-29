@@ -17,32 +17,14 @@
 		<th>Lng</th>
 	</tr>
 	<tr *ngFor="let user of users" (click)="onSelect(user)">
-		<td><a href="#openModal">{{ user.id 							}}</a></td>
-		<td><a href="#openModal">{{ user.username 				}}</a></td>
-		<td><a href="#openModal">{{ user.email 					}}</a></td>
-		<td><a href="#openModal">{{ user.address.street 	}}</a></td>
-		<td><a href="#openModal">{{ user.address.suite 	}}</a></td>
-		<td><a href="#openModal">{{ user.address.city 		}}</a></td>
-		<td><a href="#openModal">{{ user.address.zipcode }}</a></td>
-		<td><a href="#openModal">{{ user.address.geo.lat }}</a></td>
-		<td><a href="#openModal">{{ user.address.geo.lng }}</a></td>
+		<td><a routerLink="/modal-window">{{ user.id 							}}</a></td>
+		<td><a routerLink="/modal-window">{{ user.username 				}}</a></td>
+		<td><a routerLink="/modal-window">{{ user.email 				  }}</a></td>
+		<td><a routerLink="/modal-window">{{ user.address.street 	}}</a></td>
+		<td><a routerLink="/modal-window">{{ user.address.suite  	}}</a></td>
+		<td><a routerLink="/modal-window">{{ user.address.city 		}}</a></td>
+		<td><a routerLink="/modal-window">{{ user.address.zipcode }}</a></td>
+		<td><a routerLink="/modal-window">{{ user.address.geo.lat }}</a></td>
+		<td><a routerLink="/modal-window">{{ user.address.geo.lng }}</a></td>
   </tr>
 </table>
-
-<div id="openModal" class="modalDialog">
-  <div *ngIf="selectedUser">
-    <a href="#close" title="Закрыть" class="close">X</a>
-    <h2>{{ selectedUser.name }}</h2>
-      <ul>
-        <li><b>Phone:</b>    {{ selectedUser.phone   }}</li>
-        <li><b>Website:</b>  {{ selectedUser.website }}</li>
-        <li><b>Company:</b>
-          <ul>
-            <li><b>Company</b> name: {{ selectedUser.company.name        }}</li>
-            <li><b>Catch phrase:</b> {{ selectedUser.company.catchPhrase }}</li>
-            <li><b>Bs:</b>           {{ selectedUser.company.bs          }}</li>
-          </ul>
-        </li>
-      </ul>
-  </div>
-</div>
